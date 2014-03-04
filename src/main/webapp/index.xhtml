@@ -1,15 +1,46 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Facelet Title</title>
+        <title>OpenSudoku</title>
     </h:head>
     <h:body>
-        <h1>
-            Here is the sample question!
-            #{sessionBean.question}
-        </h1> 
+
+        <h1>OpenSudoku demo</h1>
+        <h2>1. to start demo ...
+        </h2>
+        #{game.demo()}
+        #{game.question}
+
+        <h2>2. show question
+        </h2>
+
+        Here is the sample question!
+        <br/>
+        #{game.getQuestionRow(1)}<br/>                
+        #{game.getQuestionRow(2)}<br/>
+        #{game.getQuestionRow(3)}<br/>
+        #{game.getQuestionRow(4)}<br/>
+        #{game.getQuestionRow(5)}<br/>
+        #{game.getQuestionRow(6)}<br/>
+        #{game.getQuestionRow(7)}<br/>
+        #{game.getQuestionRow(8)}<br/>
+        #{game.getQuestionRow(9)}<br/>
+
+
+        <h2>3. show answer
+        </h2>
+
+        after autorun
+        #{game.autorun()}
+
+
+
+
+        <br />
+        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
     </h:body>
 </html>
 
