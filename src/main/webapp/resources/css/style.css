@@ -5,9 +5,9 @@ html, body
 
 body
 {
-    margin: 0px;
+    margin: 10px;
     padding: 0px;
-/*    background: #FFFFCC;*/
+    /*    background: #FFFFCC;*/
     font-family: 'Montserrat', sans-serif;
     font-size: 11pt;
     font-weight: 200;
