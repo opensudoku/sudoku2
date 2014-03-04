@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>OpenSudoku</title>
         <h:outputStylesheet library="css" name="style.css"  />
@@ -14,54 +15,79 @@
 
         <h2>1. to start demo with sample
         </h2>
-        #{game.demo()}
-        #{game.autorun()}
+        #{game.init()}
+        
 
-        <h2>2. show question and answer
-        </h2>
+        <h3>reference: http://en.wikipedia.org/wiki/Sudoku </h3>
+        <h3>example: 009036040008070310007000060000000050090642030070000000020000400081090600040580900
 
-        <h2>
-            <table border="1">
-                <tr>
-                    <td align="center">question</td>
-                    <td rowspan="2" valign="center"> => </td>
-                    <td align="center">answer</td>
+        </h3>
 
-                </tr>
-                <tr>
-                    <td>
-                        <div style="font-family: monospace">
-                            #{game.getQuestionRow(1)}<br/>                
-                            #{game.getQuestionRow(2)}<br/>
-                            #{game.getQuestionRow(3)}<br/>
-                            #{game.getQuestionRow(4)}<br/>
-                            #{game.getQuestionRow(5)}<br/>
-                            #{game.getQuestionRow(6)}<br/>
-                            #{game.getQuestionRow(7)}<br/>
-                            #{game.getQuestionRow(8)}<br/>
-                            #{game.getQuestionRow(9)}<br/>
-                        </div>   
-                    </td>
-                    <td>
-                        <div  style="font-family: monospace">
+        <f:view>
+            <h:form>
 
-                            #{game.getAnswerRow(1)}<br/>                
-                            #{game.getAnswerRow(2)}<br/>                
-                            #{game.getAnswerRow(3)}<br/>                
-                            #{game.getAnswerRow(4)}<br/>                
-                            #{game.getAnswerRow(5)}<br/>                
-                            #{game.getAnswerRow(6)}<br/>                
-                            #{game.getAnswerRow(7)}<br/>                
-                            #{game.getAnswerRow(8)}<br/>                
-                            #{game.getAnswerRow(9)}<br/>                
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        </h2>
+                <h:panelGrid columns="4" cellpadding="5">
+                    <h:outputLabel for="name" value="Name:" style="font-weight:bold"/>
 
-        <br />
-    
+                    <p:inputText  size="100" id="name" value="#{game.firstname}" />
+
+                    <p:commandButton value="Submit" process="@form" update="grid"
+                                     actionListener="#{game.autorun()}"/>
+
+                                     <h:outputText value="#{game.firstname}" id="display" />
+                </h:panelGrid>
+
+                <p:panel>
+                    <h:panelGrid id="grid" >
+
+                        <h2>2. show question and answer
+                        </h2>
+
+                        <h2>
+                            <table border="1">
+                                <tr>
+                                    <td align="center">question</td>
+                                    <td rowspan="2" valign="center"> => </td>
+                                    <td align="center">answer</td>
+
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div style="font-family: monospace">
+                                            #{game.getQuestionRow(1)}<br/>                
+                                            #{game.getQuestionRow(2)}<br/>
+                                            #{game.getQuestionRow(3)}<br/>
+                                            #{game.getQuestionRow(4)}<br/>
+                                            #{game.getQuestionRow(5)}<br/>
+                                            #{game.getQuestionRow(6)}<br/>
+                                            #{game.getQuestionRow(7)}<br/>
+                                            #{game.getQuestionRow(8)}<br/>
+                                            #{game.getQuestionRow(9)}<br/>
+                                        </div>   
+                                    </td>
+                                    <td>
+                                        <div  style="font-family: monospace">
+
+                                            #{game.getAnswerRow(1)}<br/>                
+                                            #{game.getAnswerRow(2)}<br/>                
+                                            #{game.getAnswerRow(3)}<br/>                
+                                            #{game.getAnswerRow(4)}<br/>                
+                                            #{game.getAnswerRow(5)}<br/>                
+                                            #{game.getAnswerRow(6)}<br/>                
+                                            #{game.getAnswerRow(7)}<br/>                
+                                            #{game.getAnswerRow(8)}<br/>                
+                                            #{game.getAnswerRow(9)}<br/>                
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </h2>
+
+                        <br />
+                    </h:panelGrid>
+                </p:panel>
+            </h:form>
+        </f:view>
     </h:body>
 </html>
 

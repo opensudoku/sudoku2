@@ -24,6 +24,16 @@ public class Game {
 
     private final Solver solver;
     SudokuHtml sh;
+    
+     private String firstname;
+     
+    public String getFirstname() {
+        return firstname;
+    }
+ 
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
 
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
@@ -33,6 +43,11 @@ public class Game {
         sh = new SudokuHtml();
 //        solver.runCommand("sample1");
 
+    }
+
+    public void init() throws CloneNotSupportedException {
+     //   solver.runCommand("sample1");
+        System.out.print(" ... init ");
     }
 
     public void demo() throws CloneNotSupportedException {
