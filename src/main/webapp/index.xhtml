@@ -9,38 +9,56 @@
     <h:body>
 
         <h1>OpenSudoku demo</h1>
-        <h2>1. to start demo ...
+        <h2>1. to start demo with sample
         </h2>
         #{game.demo()}
-        #{game.question}
-
-        <h2>2. show question
-        </h2>
-
-        Here is the sample question!
-        <br/>
-        #{game.getQuestionRow(1)}<br/>                
-        #{game.getQuestionRow(2)}<br/>
-        #{game.getQuestionRow(3)}<br/>
-        #{game.getQuestionRow(4)}<br/>
-        #{game.getQuestionRow(5)}<br/>
-        #{game.getQuestionRow(6)}<br/>
-        #{game.getQuestionRow(7)}<br/>
-        #{game.getQuestionRow(8)}<br/>
-        #{game.getQuestionRow(9)}<br/>
-
-
-        <h2>3. show answer
-        </h2>
-
-        after autorun
         #{game.autorun()}
 
+        <h2>2. show question and answer
+        </h2>
 
+        <h2>
+            <table border="1">
+                <tr>
+                    <td align="center">question</td>
+                    <td rowspan="2" valign="center"> => </td>
+                    <td align="center">answer</td>
 
+                </tr>
+                <tr>
+                    <td>
+                        <div style="font-family: monospace">
+                            #{game.getQuestionRow(1)}<br/>                
+                            #{game.getQuestionRow(2)}<br/>
+                            #{game.getQuestionRow(3)}<br/>
+                            #{game.getQuestionRow(4)}<br/>
+                            #{game.getQuestionRow(5)}<br/>
+                            #{game.getQuestionRow(6)}<br/>
+                            #{game.getQuestionRow(7)}<br/>
+                            #{game.getQuestionRow(8)}<br/>
+                            #{game.getQuestionRow(9)}<br/>
+                        </div>   
+                    </td>
+                    <td>
+                        <div  style="font-family: monospace">
+
+                            #{game.getAnswerRow(1)}<br/>                
+                            #{game.getAnswerRow(2)}<br/>                
+                            #{game.getAnswerRow(3)}<br/>                
+                            #{game.getAnswerRow(4)}<br/>                
+                            #{game.getAnswerRow(5)}<br/>                
+                            #{game.getAnswerRow(6)}<br/>                
+                            #{game.getAnswerRow(7)}<br/>                
+                            #{game.getAnswerRow(8)}<br/>                
+                            #{game.getAnswerRow(9)}<br/>                
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </h2>
 
         <br />
-        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+    
     </h:body>
 </html>
 

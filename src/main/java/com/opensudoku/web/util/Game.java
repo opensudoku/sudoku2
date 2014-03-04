@@ -7,6 +7,7 @@ package com.opensudoku.web.util;
 
 import com.opensudoku.util.Solver;
 import com.opensudoku.util.Sudoku;
+import javax.ejb.Singleton;
 import javax.ejb.Stateful;
 import javax.inject.Named;
 
@@ -14,11 +15,14 @@ import javax.inject.Named;
  *
  * @author mark
  */
-@Stateful
+//@Stateful
+// FINDING: 3/4/2014, by Mark, Stateful is not working for this case. Must be Singleton!!!
+// HOW ABOUT FOR 2 AND MORE USERS???
+@Singleton
 @Named
 public class Game {
 
-    private Solver solver;
+    private final Solver solver;
     SudokuHtml sh;
 
     // Add business logic below. (Right-click in editor and choose
@@ -27,13 +31,17 @@ public class Game {
         this.solver = new Solver();
 //        solver.runCommand("sample1");
         sh = new SudokuHtml();
-        solver.runCommand("sample1");
+//        solver.runCommand("sample1");
 
     }
 
     public void demo() throws CloneNotSupportedException {
-//        solver.runCommand("sample1");
+        solver.runCommand("sample1");
         System.out.print(" ... demo ");
+    }
+
+    public String getStatus() {
+        return solver.getCore().getStatus();
     }
 
     public void autorun() throws CloneNotSupportedException {
@@ -52,6 +60,11 @@ public class Game {
         sh.setData(solver.getCore().getAnswer().toString());
 
         return sh.getRowString(k);
+    }
+
+    public String getAnswer() {
+        return solver.getCore().getAnswer().toString();
+
     }
 
     public String getQuestion() {
