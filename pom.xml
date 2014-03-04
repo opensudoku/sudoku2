@@ -4,7 +4,7 @@
 
     <groupId>com.opensudoku</groupId>
     <artifactId>sudoku2</artifactId>
-    <version>1.2</version>
+    <version>1.3</version>
     <packaging>war</packaging>
 
     <name>sudoku2</name>
