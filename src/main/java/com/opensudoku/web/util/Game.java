@@ -24,13 +24,13 @@ public class Game {
 
     private final Solver solver;
     SudokuHtml sh;
-    
-     private String firstname;
-     
+
+    private String firstname;
+
     public String getFirstname() {
         return firstname;
     }
- 
+
     public void setFirstname(String firstname) {
         this.firstname = firstname;
     }
@@ -46,7 +46,7 @@ public class Game {
     }
 
     public void init() throws CloneNotSupportedException {
-     //   solver.runCommand("sample1");
+        //   solver.runCommand("sample1");
         System.out.print(" ... init ");
     }
 
@@ -60,8 +60,17 @@ public class Game {
     }
 
     public void autorun() throws CloneNotSupportedException {
+//            solver.runCommand("sample1");
+        solver.getCore().getQuestion().setData(firstname);
+
+//        Sudoku saveQuestion=new Sudoku();
+//        saveQuestion.setData(firstname);
+        
+        
         System.out.print(" ******************* autorun ");
         solver.runCommand("autorun");
+        
+        solver.getCore().getQuestion().setData(firstname);
         System.out.print(solver.getCore().getAnswer().toString());
     }
 
