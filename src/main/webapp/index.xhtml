@@ -13,8 +13,9 @@
         <h1>OpenSudoku demo</h1>
         <img src="resources/pic/five-houses-logo1.jpg" width="180" height="135" alt="five-houses-logo1"/>
 
-        <h2>1. to start demo with sample
+        <h2>Input question then Submit
         </h2>
+        <br></br>
         #{game.init()}
         
 
@@ -27,9 +28,9 @@
             <h:form>
 
                 <h:panelGrid columns="4" cellpadding="5">
-                    <h:outputLabel for="name" value="Name:" style="font-weight:bold"/>
+                    <h:outputLabel for="name" value="question:" style="font-weight:bold"/>
 
-                    <p:inputText  size="100" id="name" value="#{game.firstname}" />
+                    <p:inputText  size="91" id="name" value="#{game.firstname}" />
 
                     <p:commandButton value="Submit" process="@form" update="grid"
                                      actionListener="#{game.autorun()}"/>
@@ -38,16 +39,14 @@
                 </h:panelGrid>
 
                 <p:panel>
-                    <h:panelGrid id="grid" >
+                    <h:panelGrid id="grid" style="margin-left: 55px">
 
-                        <h2>2. show question and answer
-                        </h2>
-
+                          
                         <h2>
                             <table border="1">
                                 <tr>
                                     <td align="center">question</td>
-                                    <td rowspan="2" valign="center"> => </td>
+                                    <td rowspan="2" valign="center" align="center">  #{game.status} <br></br>=> </td>
                                     <td align="center">answer</td>
 
                                 </tr>
