@@ -14,7 +14,7 @@
         <a href="http://www.opensudoku.com">
             <img src="resources/pic/five-houses-logo1.jpg" width="180" height="135" alt="five-houses-logo1"/>
         </a>
-        <h2>Input question then Submit
+        <h2>Input question, row by row,  then to Submit to get Answer
         </h2>
         <br></br>
         #{game.init()}
@@ -27,10 +27,35 @@
 
         <f:view>
             <h:form>
-
+                <h:panelGrid columns="2" cellpadding="0">
+                <h:outputLabel for="rowA" value="row A=" style="font-weight:bold"/>
+                <p:inputText  size="9" id="rowA" value="#{game.rowA}" />
+                <h:outputLabel for="rowB" value="row B=" style="font-weight:bold"/>
+                <p:inputText  size="9" id="rowB" value="#{game.rowB}" />
+                <h:outputLabel for="rowC" value="row C=" style="font-weight:bold"/>
+                <p:inputText  size="9" id="rowC" value="#{game.rowC}" />
+                <br></br>
+                <h:outputLabel for="rowD" value="row D=" style="font-weight:bold"/>
+                <p:inputText  size="9" id="rowD" value="#{game.rowD}" />
+                <br></br>
+                <h:outputLabel for="rowE" value="row E=" style="font-weight:bold"/>
+                <p:inputText  size="9" id="rowE" value="#{game.rowE}" />
+                <br></br>
+                <h:outputLabel for="rowF" value="row F=" style="font-weight:bold"/>
+                <p:inputText  size="9" id="rowF" value="#{game.rowF}" />
+                <br></br>
+                <h:outputLabel for="rowG" value="row G=" style="font-weight:bold"/>
+                <p:inputText  size="9" id="rowG" value="#{game.rowG}" />
+                <br></br>
+                <h:outputLabel for="rowH" value="row H=" style="font-weight:bold"/>
+                <p:inputText  size="9" id="rowH" value="#{game.rowH}" />
+                <br></br>
+                <h:outputLabel for="rowI" value="row I=" style="font-weight:bold"/>
+                <p:inputText  size="9" id="rowI" value="#{game.rowI}" />
+  </h:panelGrid>
                 <h:panelGrid columns="4" cellpadding="5">
-                    <h:outputLabel for="name" value="question:" style="font-weight:bold"/>
 
+                    <h:outputLabel for="name" value="question:" style="font-weight:bold"/>
                     <p:inputText  size="91" id="name" value="#{game.firstname}" />
 
                     <p:commandButton value="Submit" process="@form" update="grid"

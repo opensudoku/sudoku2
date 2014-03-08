@@ -22,22 +22,99 @@ import javax.inject.Named;
 @Named
 public class Game {
 
-    private final Solver solver;
-    SudokuHtml sh;
+    public Game() {
+    }
+    
+    private final Solver solver=new Solver();
+    SudokuHtml sh=new SudokuHtml();
 
     private String firstname;
-    private String[] row = new String[9];
+    //private String[] row = new String[9];
+    private String rowA;
+    private String rowB;
+    private String rowC;
+    private String rowD;
+    private String rowE;
+    private String rowF;
+    private String rowG;
+    private String rowH;
+    private String rowI;
+
+//    public Game() {
+//        this.solver = new Solver();
+//    }
 
     public String getRowA() {
-        return row[0];
+        return rowA;
     }
 
-    public void setRow(String rowA) {
-        this.row[0] = rowA;
+    public void setRowA(String rowA) {
+        this.rowA = rowA;
     }
-    
-    
-    
+
+    public String getRowB() {
+        return rowB;
+    }
+
+    public void setRowB(String rowB) {
+        this.rowB = rowB;
+    }
+
+    public String getRowC() {
+        return rowC;
+    }
+
+    public void setRowC(String rowC) {
+        this.rowC = rowC;
+    }
+
+    public String getRowD() {
+        return rowD;
+    }
+
+    public void setRowD(String rowD) {
+        this.rowD = rowD;
+    }
+
+    public String getRowE() {
+        return rowE;
+    }
+
+    public void setRowE(String rowE) {
+        this.rowE = rowE;
+    }
+
+    public String getRowF() {
+        return rowF;
+    }
+
+    public void setRowF(String rowF) {
+        this.rowF = rowF;
+    }
+
+    public String getRowG() {
+        return rowG;
+    }
+
+    public void setRowG(String rowG) {
+        this.rowG = rowG;
+    }
+
+    public String getRowH() {
+        return rowH;
+    }
+
+    public void setRowH(String rowH) {
+        this.rowH = rowH;
+    }
+
+    public String getRowI() {
+        return rowI;
+    }
+
+    public void setRowI(String rowI) {
+        this.rowI = rowI;
+    }
     
     
 
@@ -51,21 +128,22 @@ public class Game {
 
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
-    public Game() throws CloneNotSupportedException {
-        this.solver = new Solver();
-//        solver.runCommand("sample1");
-        sh = new SudokuHtml();
-//        solver.runCommand("sample1");
+//    public Game() throws CloneNotSupportedException {
+////        this.solver = new Solver();
+////        solver.runCommand("sample1");
+////        sh = new SudokuHtml();
+////        solver.runCommand("sample1");
+//
+//    }
 
-    }
-
-    public void init() throws CloneNotSupportedException {
+    public void init()  {
         //   solver.runCommand("sample1");
+        
         System.out.print(" ... init ");
     }
 
-    public void demo() throws CloneNotSupportedException {
-        solver.runCommand("sample1");
+    public void demo()  {
+        solver.runCommand("sample1...");
         System.out.print(" ... demo ");
     }
 
@@ -73,16 +151,31 @@ public class Game {
         return solver.getCore().getStatus();
     }
 
-    public void autorun() throws CloneNotSupportedException {
+    public void autorun() {
+          System.out.print(" ******************* rowA " + getRowA());
+        System.out.print(" ******************* rowB " + getRowB());
+        System.out.print(" ******************* rowC " + getRowC());
+        System.out.print(" ******************* rowD " + getRowD());
+        System.out.print(" ******************* rowE " + getRowE());
+        System.out.print(" ******************* rowF " + getRowF());
+        System.out.print(" ******************* rowG " + getRowG());
+        System.out.print(" ******************* rowH " + getRowH());
+        System.out.print(" ******************* rowI " + getRowI());
+
+//        solver.getCore().getQuestion().setData(firstname);
+        String str = rowA + rowB + rowC + rowD + rowE + rowF + rowG + rowH + rowI;
 //            solver.runCommand("sample1");
-        solver.getCore().getQuestion().setData(firstname);
+        
+        solver.getCore().getQuestion().setData(str);
 
 //        Sudoku saveQuestion=new Sudoku();
 //        saveQuestion.setData(firstname);
         System.out.print(" ******************* autorun ");
         solver.runCommand("autorun");
 
-        solver.getCore().getQuestion().setData(firstname);
+      
+        solver.getCore().getQuestion().setData(str);
+
         System.out.print(solver.getCore().getAnswer().toString());
     }
 
