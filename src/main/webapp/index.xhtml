@@ -10,7 +10,12 @@
     </h:head>
     <h:body>
 
-        <h1>OpenSudoku demo</h1>
+        <h1>OpenSudoku demo </h1>
+        <div style="font-family: monospace">
+        <h3>&ensp;&ensp;by: Mark</h3>
+        <h3>&ensp;ver: 1.7.1 (with core 1.7)</h3>
+        <h3>date: 3/8/2014 </h3>
+        </div>
         <a href="http://www.opensudoku.com">
             <img src="resources/pic/five-houses-logo1.jpg" width="180" height="135" alt="five-houses-logo1"/>
         </a>
@@ -22,18 +27,34 @@
                 <table>
                     <tr><td> 
                             <p:panel>
-                                <h:panelGrid id="grid" style="margin-left: 55px">
+                                <h:panelGrid id="grid" style="margin-left: 0px; margin-right: 0px; margin-top: 0px;margin-bottom: 0px">
 
 
                                     <h2>
                                         <table border="1">
                                             <tr>
+                                                <td align="center">#</td>
+                                               
+                                          
                                                 <td align="center">question</td>
-                                                <td rowspan="2" valign="center" align="center">  #{game.status} <br></br>=> </td>
+                                                <td rowspan="2" valign="center" align="center"> 
+                                                    #{game.status} <br></br>=> 
+                                                </td>
                                                 <td align="center">answer</td>
 
                                             </tr>
-                                            <tr>
+                                            <tr> <td valign="center" align="center"> 
+                                                    A<br></br>
+                                                    B<br></br>
+                                                    C<br></br>
+                                                    D<br></br>
+                                                    E<br></br>
+                                                    F<br></br>
+                                                    G<br></br>
+                                                    H<br></br>
+                                                    I<br></br>
+                                                    
+                                                </td>
                                                 <td>
                                                     <div style="font-family: monospace">
                                                         #{game.getQuestionRow(1)}<br/>                
@@ -77,8 +98,6 @@
                                 <f:facet name="header">
                                     <h:outputText style="font-size: larger" value="Input Numbers"/>
                                 </f:facet>
-                                <h:outputLabel style="font-size: larger" value="Row" />
-                                <h:outputLabel style="alignment-adjust:central; font-size: larger" value="Numbers" />
                                 <h:outputLabel  value="&ensp;A&ensp;" />
                                 <h:inputText style="font-size: larger" size="9" id="row1" value="#{game.rowA}" />
                                 <h:outputLabel  value="&ensp;B&ensp;" />

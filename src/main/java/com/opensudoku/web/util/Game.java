@@ -6,6 +6,7 @@
 package com.opensudoku.web.util;
 
 import com.opensudoku.util.Solver;
+import com.opensudoku.util.SolverExt;
 import com.opensudoku.util.Sudoku;
 import javax.ejb.Singleton;
 import javax.ejb.Stateful;
@@ -25,7 +26,10 @@ public class Game {
     public Game() {
     }
     
-    private final Solver solver=new Solver();
+    private final SolverExt solver=new SolverExt();
+//    private final Solver solver=new Solver();
+    
+    
     SudokuHtml sh=new SudokuHtml();
 
     private String firstname;
@@ -147,7 +151,20 @@ public class Game {
         System.out.print(" ... demo ");
     }
 
+
+    
+    
     public String getStatus() {
+        if (solver.getAnswerCnt()==0){
+            return "No Answer";
+        }
+        if (solver.getAnswerCnt()>1){
+            return "More Answers";
+        }
+         if (solver.getAnswerCnt()==1){
+            return "One Answer!";
+        }
+       
         return solver.getCore().getStatus();
     }
 
@@ -202,8 +219,8 @@ public class Game {
 //        Sudoku saveQuestion=new Sudoku();
 //        saveQuestion.setData(firstname);
         System.out.print(" ******************* autorun ");
-        solver.runCommand("autorun");
-
+//        solver.runCommand("autorun");
+        solver.run();
       
 //        solver.getCore().getQuestion().setData(str);
 
@@ -219,10 +236,18 @@ public class Game {
     public String getAnswerRow(int k) {
         sh.setData(solver.getCore().getAnswer().toString());
 
+        if (solver.getAnswerCnt()==0){
+        sh.setData(new Sudoku().toString());
+    
+        }
         return sh.getRowString(k);
     }
 
     public String getAnswer() {
+//     if (solver.getAnswerCnt()==0){
+//       return new Sudoku().toString();   
+//     }
+     
         return solver.getCore().getAnswer().toString();
 
     }
