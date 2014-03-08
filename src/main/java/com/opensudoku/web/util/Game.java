@@ -151,6 +151,25 @@ public class Game {
         return solver.getCore().getStatus();
     }
 
+    public void setSample() {
+      //  530070000_600195000_098000060_800060003_400803001_700020006_060000280_000419005_000080079
+    rowA="530070000";
+    rowB="600195000";
+    rowC="098000060";
+    rowD="800060003";
+    rowE="400803001";
+    rowF="700020006";
+    rowG="060000280";
+    rowH="000419005";
+    rowI="000080079";
+        
+        
+    }
+    
+    private String get9Numbers(String input){
+        String str=input+"000000000";
+        return str.substring(0,9);
+    }
     public void autorun() {
           System.out.print(" ******************* rowA " + getRowA());
         System.out.print(" ******************* rowB " + getRowB());
@@ -163,10 +182,22 @@ public class Game {
         System.out.print(" ******************* rowI " + getRowI());
 
 //        solver.getCore().getQuestion().setData(firstname);
-        String str = rowA + rowB + rowC + rowD + rowE + rowF + rowG + rowH + rowI;
+//        String str = rowA + rowB + rowC + rowD + rowE + rowF + rowG + rowH + rowI;
 //            solver.runCommand("sample1");
+        StringBuilder sb=new StringBuilder();
+        sb.append(get9Numbers(rowA));
+        sb.append(get9Numbers(rowB));
+        sb.append(get9Numbers(rowC));
+        sb.append(get9Numbers(rowD));
+        sb.append(get9Numbers(rowE));
+        sb.append(get9Numbers(rowF));
+        sb.append(get9Numbers(rowG));
+        sb.append(get9Numbers(rowH));
+        sb.append(get9Numbers(rowI));
         
-        solver.getCore().getQuestion().setData(str);
+        
+        
+        solver.getCore().getQuestion().setData(sb.toString());
 
 //        Sudoku saveQuestion=new Sudoku();
 //        saveQuestion.setData(firstname);
@@ -174,9 +205,9 @@ public class Game {
         solver.runCommand("autorun");
 
       
-        solver.getCore().getQuestion().setData(str);
+//        solver.getCore().getQuestion().setData(str);
 
-        System.out.print(solver.getCore().getAnswer().toString());
+//        System.out.print(solver.getCore().getAnswer().toString());
     }
 
     public String getQuestionRow(int k) {

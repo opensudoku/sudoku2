@@ -14,102 +14,102 @@
         <a href="http://www.opensudoku.com">
             <img src="resources/pic/five-houses-logo1.jpg" width="180" height="135" alt="five-houses-logo1"/>
         </a>
-        <h2>Input question, row by row,  then to Submit to get Answer
-        </h2>
-        <br></br>
+
         #{game.init()}
 
-
-        <h3>reference: http://en.wikipedia.org/wiki/Sudoku </h3>
-        <h3>example: 530070000_600195000_098000060_800060003_400803001_700020006_060000280_000419005_000080079
-
-        </h3>
-
         <f:view>
-            <h:form>
-                <h:panelGrid columns="2" cellpadding="0">
-                <h:outputLabel for="rowA" value="row A=" style="font-weight:bold"/>
-                <p:inputText  size="9" id="rowA" value="#{game.rowA}" />
-                <h:outputLabel for="rowB" value="row B=" style="font-weight:bold"/>
-                <p:inputText  size="9" id="rowB" value="#{game.rowB}" />
-                <h:outputLabel for="rowC" value="row C=" style="font-weight:bold"/>
-                <p:inputText  size="9" id="rowC" value="#{game.rowC}" />
-                <br></br>
-                <h:outputLabel for="rowD" value="row D=" style="font-weight:bold"/>
-                <p:inputText  size="9" id="rowD" value="#{game.rowD}" />
-                <br></br>
-                <h:outputLabel for="rowE" value="row E=" style="font-weight:bold"/>
-                <p:inputText  size="9" id="rowE" value="#{game.rowE}" />
-                <br></br>
-                <h:outputLabel for="rowF" value="row F=" style="font-weight:bold"/>
-                <p:inputText  size="9" id="rowF" value="#{game.rowF}" />
-                <br></br>
-                <h:outputLabel for="rowG" value="row G=" style="font-weight:bold"/>
-                <p:inputText  size="9" id="rowG" value="#{game.rowG}" />
-                <br></br>
-                <h:outputLabel for="rowH" value="row H=" style="font-weight:bold"/>
-                <p:inputText  size="9" id="rowH" value="#{game.rowH}" />
-                <br></br>
-                <h:outputLabel for="rowI" value="row I=" style="font-weight:bold"/>
-                <p:inputText  size="9" id="rowI" value="#{game.rowI}" />
-  </h:panelGrid>
-                <h:panelGrid columns="4" cellpadding="5">
-
-                    <h:outputLabel for="name" value="question:" style="font-weight:bold"/>
-                    <p:inputText  size="91" id="name" value="#{game.firstname}" />
-
-                    <p:commandButton value="Submit" process="@form" update="grid"
-                                     actionListener="#{game.autorun()}"/>
-
-                </h:panelGrid>
-
-                <p:panel>
-                    <h:panelGrid id="grid" style="margin-left: 55px">
+            <h:form id="form">
+                <table>
+                    <tr><td> 
+                            <p:panel>
+                                <h:panelGrid id="grid" style="margin-left: 55px">
 
 
-                        <h2>
-                            <table border="1">
-                                <tr>
-                                    <td align="center">question</td>
-                                    <td rowspan="2" valign="center" align="center">  #{game.status} <br></br>=> </td>
-                                    <td align="center">answer</td>
+                                    <h2>
+                                        <table border="1">
+                                            <tr>
+                                                <td align="center">question</td>
+                                                <td rowspan="2" valign="center" align="center">  #{game.status} <br></br>=> </td>
+                                                <td align="center">answer</td>
 
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div style="font-family: monospace">
-                                            #{game.getQuestionRow(1)}<br/>                
-                                            #{game.getQuestionRow(2)}<br/>
-                                            #{game.getQuestionRow(3)}<br/>
-                                            #{game.getQuestionRow(4)}<br/>
-                                            #{game.getQuestionRow(5)}<br/>
-                                            #{game.getQuestionRow(6)}<br/>
-                                            #{game.getQuestionRow(7)}<br/>
-                                            #{game.getQuestionRow(8)}<br/>
-                                            #{game.getQuestionRow(9)}<br/>
-                                        </div>   
-                                    </td>
-                                    <td>
-                                        <div  style="font-family: monospace">
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div style="font-family: monospace">
+                                                        #{game.getQuestionRow(1)}<br/>                
+                                                        #{game.getQuestionRow(2)}<br/>
+                                                        #{game.getQuestionRow(3)}<br/>
+                                                        #{game.getQuestionRow(4)}<br/>
+                                                        #{game.getQuestionRow(5)}<br/>
+                                                        #{game.getQuestionRow(6)}<br/>
+                                                        #{game.getQuestionRow(7)}<br/>
+                                                        #{game.getQuestionRow(8)}<br/>
+                                                        #{game.getQuestionRow(9)}<br/>
+                                                    </div>   
+                                                </td>
+                                                <td>
+                                                    <div  style="font-family: monospace">
 
-                                            #{game.getAnswerRow(1)}<br/>                
-                                            #{game.getAnswerRow(2)}<br/>                
-                                            #{game.getAnswerRow(3)}<br/>                
-                                            #{game.getAnswerRow(4)}<br/>                
-                                            #{game.getAnswerRow(5)}<br/>                
-                                            #{game.getAnswerRow(6)}<br/>                
-                                            #{game.getAnswerRow(7)}<br/>                
-                                            #{game.getAnswerRow(8)}<br/>                
-                                            #{game.getAnswerRow(9)}<br/>                
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
-                        </h2>
+                                                        #{game.getAnswerRow(1)}<br/>                
+                                                        #{game.getAnswerRow(2)}<br/>                
+                                                        #{game.getAnswerRow(3)}<br/>                
+                                                        #{game.getAnswerRow(4)}<br/>                
+                                                        #{game.getAnswerRow(5)}<br/>                
+                                                        #{game.getAnswerRow(6)}<br/>                
+                                                        #{game.getAnswerRow(7)}<br/>                
+                                                        #{game.getAnswerRow(8)}<br/>                
+                                                        #{game.getAnswerRow(9)}<br/>                
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </h2>
 
-                        <br />
-                    </h:panelGrid>
-                </p:panel>
+                                    <br />
+                                </h:panelGrid>
+                            </p:panel>
+
+                        </td>
+
+                        <td>
+
+                            <h:panelGrid id="panel" columns="2" border="1" cellpadding="0" cellspacing="2" >
+                                <f:facet name="header">
+                                    <h:outputText style="font-size: larger" value="Input Numbers"/>
+                                </f:facet>
+                                <h:outputLabel style="font-size: larger" value="Row" />
+                                <h:outputLabel style="alignment-adjust:central; font-size: larger" value="Numbers" />
+                                <h:outputLabel  value="&ensp;A&ensp;" />
+                                <h:inputText style="font-size: larger" size="9" id="row1" value="#{game.rowA}" />
+                                <h:outputLabel  value="&ensp;B&ensp;" />
+                                <h:inputText style="font-size: larger"  size="9" id="row2" value="#{game.rowB}" />
+                                <h:outputLabel  value="&ensp;C&ensp;" />
+                                <h:inputText style="font-size: larger"  size="9" id="row3" value="#{game.rowC}" />
+                                <h:outputLabel  value="&ensp;D&ensp;" />
+                                <h:inputText style="font-size: larger"  size="9" id="row4" value="#{game.rowD}" />
+                                <h:outputLabel  value="&ensp;E&ensp;" />
+                                <h:inputText style="font-size: larger"  size="9" id="row5" value="#{game.rowE}" />
+                                <h:outputLabel  value="&ensp;F&ensp;" />
+                                <h:inputText style="font-size: larger"  size="9" id="row6" value="#{game.rowF}" />
+                                <h:outputLabel  value="&ensp;G&ensp;" />
+                                <h:inputText style="font-size: larger"  size="9" id="row7" value="#{game.rowG}" />
+                                <h:outputLabel  value="&ensp;H&ensp;" />
+                                <h:inputText style="font-size: larger"  size="9" id="row8" value="#{game.rowH}" />
+                                <h:outputLabel  value="&ensp;I&ensp;" />
+                                <h:inputText style="font-size: larger"  size="9" id="row9" value="#{game.rowI}" />
+
+
+                                <f:facet name="footer" >
+
+                                    <p:commandButton value="Sample" process="@form" update="panel"
+                                                     actionListener="#{game.setSample()}"/>
+                                    <p:commandButton value="Submit" process="@form" update="grid"
+                                                     actionListener="#{game.autorun()}"/>
+                                </f:facet>
+                            </h:panelGrid>
+                        </td>
+                    </tr>
+                </table>
             </h:form>
         </f:view>
     </h:body>
