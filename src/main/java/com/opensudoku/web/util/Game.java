@@ -26,6 +26,20 @@ public class Game {
     SudokuHtml sh;
 
     private String firstname;
+    private String[] row = new String[9];
+
+    public String getRowA() {
+        return row[0];
+    }
+
+    public void setRow(String rowA) {
+        this.row[0] = rowA;
+    }
+    
+    
+    
+    
+    
 
     public String getFirstname() {
         return firstname;
